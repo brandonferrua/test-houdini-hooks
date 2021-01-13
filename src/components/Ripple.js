@@ -10,7 +10,7 @@ export default class WorkletRipple extends ReactiveElement {
     let x, y;
     canvas.addEventListener("click", (e) => {
       canvas.setAttribute("animating", true);
-      [x, y] = [e.clientX, e.clientY];
+      [x, y] = [e.offsetX, e.offsetY];
       start = performance.now();
       requestAnimationFrame(function raf(now) {
         const count = Math.floor(now - start);
@@ -28,6 +28,15 @@ export default class WorkletRipple extends ReactiveElement {
     return templateFrom.html`
       <div id="canvas"></div>
       <style>
+        :host {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: relative;
+        }
+        ::part(button) {
+          background-image: paint(ripple);
+        }
         #canvas {
           width: 100%;
           height: 100%;

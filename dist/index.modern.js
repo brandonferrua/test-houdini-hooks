@@ -259,9 +259,18 @@ const e=Symbol("defaultState"),t=Symbol("delegatesFocus"),o=Symbol("firstRender"
           fill: var(--sds-g-color-brand-base-contrast-2);
         }
       </style>
-    `))}}customElements.define("worklet-header-bar",Ge);let Ze,Je=e=>e;class Ke extends De{[Y](e){super[Y](e);const t=this[B].canvas;let o,s,r=performance.now();t.addEventListener("click",e=>{t.setAttribute("animating",!0),[o,s]=[e.clientX,e.clientY],r=performance.now(),requestAnimationFrame(function e(n){const i=Math.floor(n-r);if(t.style.cssText=`--ripple-x: ${o}; --ripple-y: ${s}; --animation-tick: ${i}; `,i>1e3)return t.removeAttribute("animating"),void(t.style.cssText="--animation-tick: 0");requestAnimationFrame(e)})})}get[ve](){return fe.html(Ze||(Ze=Je`
+    `))}}customElements.define("worklet-header-bar",Ge);let Ze,Je=e=>e;class Ke extends De{[Y](e){super[Y](e);const t=this[B].canvas;let o,s,r=performance.now();t.addEventListener("click",e=>{t.setAttribute("animating",!0),[o,s]=[e.offsetX,e.offsetY],r=performance.now(),requestAnimationFrame(function e(n){const i=Math.floor(n-r);if(t.style.cssText=`--ripple-x: ${o}; --ripple-y: ${s}; --animation-tick: ${i}; `,i>1e3)return t.removeAttribute("animating"),void(t.style.cssText="--animation-tick: 0");requestAnimationFrame(e)})})}get[ve](){return fe.html(Ze||(Ze=Je`
       <div id="canvas"></div>
       <style>
+        :host {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: relative;
+        }
+        ::part(button) {
+          background-image: paint(ripple);
+        }
         #canvas {
           width: 100%;
           height: 100%;
