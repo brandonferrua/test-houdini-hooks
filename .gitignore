@@ -1,0 +1,13 @@
+# Ignore all hidden dotfiles
+.*
+
+# Whitelist useful dotfiles
+!/.editorconfig
+!/.gitignore
+
+# Ignore modules
+node_modules
+
+# Ignore logs
+*.log
+

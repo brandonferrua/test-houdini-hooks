@@ -1,0 +1,19 @@
+{
+  "name": "test-houdini-hooks",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "microbundle --entry src/index.js --output dist/index.js --no-pkg-main --format modern --no-sourcemap",
+    "start": "npx http-server .",
+    "dev": "microbundle watch --format modern"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@bit/brandonferrua.worklets.hooks": "0.0.1",
+    "elix": "^14.1.2",
+    "microbundle": "^0.13.0"
+  }
+}

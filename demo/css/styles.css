@@ -1,0 +1,40 @@
+
+body {
+  --columns: 8;
+  --aside: 150px;
+  --columnSize: 100px;
+  --headerHeight: 50px;
+  background-color: var(--sds-g-color-neutral-base-2);
+  color: var(--sds-g-color-neutral-base-contrast-4);
+  line-height: 1.5;
+  font-size: 0.75rem;
+  -webkit-tap-highlight-color: transparent;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  padding-top: 50px;
+  margin: 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: var(--aside) calc(var(--columnSize) * var(--columns)) 1fr;
+  gap: 1rem;
+}
+
+section {
+  padding: 1rem 0;
+}
+
+h1,
+h2,
+h3 {
+  font-size: inherit;
+  margin: 0;
+}
+
+aside {
+  padding: 1rem;
+  color: var(--sds-g-color-neutral-base-contrast-3);
+}
