@@ -4,30 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Houdini Styling Hooks</title>
+  <title>Houdini Paint API</title>
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-  <worklet-header-bar page="api"></worklet-header-bar>
+  <worklet-header-bar page="paint"></worklet-header-bar>
   <main>
     <aside>
       <h2>About this project</h2>
       <p>This project is an experiment on using low-level APIs through CSS Houdini.</p>
       <p>SDS Styling Hooks are being registered on the main thread of the document. This has improved performance and the ability to animate CSS custom properties since they are treated like any other CSS property provided by the rendering engine of the browser.</p>
     </aside>
+    <section page="paint">
+      <h2>Paint API</h2>
+      <worklet-ripple></worklet-ripple>
+    </section>
     <section>
       <h2>Colors</h2>
       <worklet-colors></worklet-colors>
-    </section>
-    <section>
-      <h2>Overrides</h2>
-      <worklet-css></worklet-css>
-      <h2>Component Preview</h2>
-      <worklet-preview></worklet-preview>
     </section>
   </main>
 
   <script src='../node_modules/@bit/brandonferrua.worklets.hooks/hooks.js' type="module"></script>
   <script src="../dist/index.modern.js" type="module"></script>
+  <script>
+    (async () => {
+      await CSS.paintWorklet.addModule(
+        "https://cdn.jsdelivr.net/gh/GoogleChromeLabs/houdini-samples/paint-worklet/ripple/paintworklet.js"
+      );
+    })();
+  </script>
 </body>
 </html>

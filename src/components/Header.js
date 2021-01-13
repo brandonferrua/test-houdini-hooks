@@ -1,23 +1,55 @@
 import {
-  template
+  defaultState,
+  render,
+  ids,
+  setState,
+  state,
+  template,
 } from "elix/src/base/internal.js";
 import { templateFrom } from "elix/src/core/htmlLiterals";
 import ReactiveElement from "elix/src/core/ReactiveElement.js";
 
 export default class WorkletHeader extends ReactiveElement {
-
+  get [defaultState]() {
+    return Object.assign(super[defaultState], {
+      page: null,
+    });
+  }
+  get page() {
+    return this[state].page;
+  }
+  set page(page) {
+    this[setState]({
+      page: page,
+    });
+  }
+  [render](changed) {
+    super[render](changed);
+    if (changed.page) {
+      const nav = this[ids].nav;
+      // console.log(nav);
+      const options = nav.options;
+      // console.log(options);
+      for (let option of options) {
+        // console.log({ option });
+        if (option.value === this[state].page) {
+          option.setAttribute("selected", true);
+        }
+      }
+    }
+  }
   get [template]() {
     return templateFrom.html`
       <header>
         <h1>Styling Hooks Worklets and APIs</h1>
         <span>→</span>
-        <select>
-          <option>Custom Properties & Values API</option>
-          <option>Paint Worklet API</option>
-          <option>Layout Worklet API</option>
-          <option>Animation Worklet API</option>
+        <select id="nav">
+          <option value="api">Custom Properties & Values API</option>
+          <option value="paint">Paint Worklet API</option>
+          <option value="layout">Layout Worklet API</option>
+          <option value="animation">Animation Worklet API</option>
         </select>
-        <a rel="github" href="">
+        <a rel="github" href="https://github.com/brandonferrua/test-houdini-hooks">
           <svg version="1.1" viewBox="0 0 33 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
             <polygon id="a" points="8.1315e-20 -3.5527e-15 8.1315e-20 31.775 32.579 31.775 32.579 3.5527e-15"/>
@@ -58,4 +90,4 @@ export default class WorkletHeader extends ReactiveElement {
   }
 }
 
-customElements.define('worklet-header-bar', WorkletHeader);
+customElements.define("worklet-header-bar", WorkletHeader);
