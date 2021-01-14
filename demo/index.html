@@ -6,6 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Houdini Styling Hooks</title>
   <link rel="stylesheet" href="./css/styles.css">
+  <script type="module">
+    window.addEventListener("load", () => {
+      const header = document.querySelector("worklet-header-bar");
+      header.nav = [
+        { label: "New", value: "new" },
+        { label: "In Progress", value: "inProgress" },
+        { label: "Finished", value: "finished" },
+      ];
+    });
+  </script>
 </head>
 <body>
   <worklet-header-bar page="api"></worklet-header-bar>

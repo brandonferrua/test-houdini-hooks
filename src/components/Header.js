@@ -13,6 +13,7 @@ export default class WorkletHeader extends ReactiveElement {
   get [defaultState]() {
     return Object.assign(super[defaultState], {
       page: null,
+      nav: null,
     });
   }
   get page() {
@@ -23,32 +24,21 @@ export default class WorkletHeader extends ReactiveElement {
       page: page,
     });
   }
+
   [render](changed) {
     super[render](changed);
-    if (changed.page) {
-      const nav = this[ids].nav;
-      // console.log(nav);
-      const options = nav.options;
-      // console.log(options);
-      for (let option of options) {
-        // console.log({ option });
-        if (option.value === this[state].page) {
-          option.setAttribute("selected", true);
-        }
-      }
-    }
   }
   get [template]() {
     return templateFrom.html`
       <header>
         <h1>Styling Hooks Worklets and APIs</h1>
         <span>→</span>
-        <select id="nav">
-          <option value="api">Custom Properties & Values API</option>
-          <option value="paint">Paint Worklet API</option>
-          <option value="layout">Layout Worklet API</option>
-          <option value="animation">Animation Worklet API</option>
-        </select>
+        <sds-select id="nav" selectedItem=${this[state].page}>
+          <div value="api">CSS Properties and Values API</div>
+          <div value="paint">CSS Painting API</div>
+          <div value="layout">CSS Layout API</div>
+          <div value="animation">Animation API</div>
+        </sds-select>
         <a rel="github" href="https://github.com/brandonferrua/test-houdini-hooks">
           <svg version="1.1" viewBox="0 0 33 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>

@@ -1,17 +1,8 @@
-import {
-  defaultState,
-  template
-} from "elix/src/base/internal.js";
+import { template } from "elix/src/base/internal.js";
 import { templateFrom } from "elix/src/core/htmlLiterals";
 import ReactiveElement from "elix/src/core/ReactiveElement.js";
 
 export default class SdsButton extends ReactiveElement {
-  get [defaultState]() {
-    return Object.assign(super[defaultState], {
-      prop: null
-    });
-  }
-
   get [template]() {
     return templateFrom.html`
       <button part="button">
@@ -26,4 +17,4 @@ export default class SdsButton extends ReactiveElement {
   }
 }
 
-customElements.define('sds-button', SdsButton);
+customElements.define("sds-button", SdsButton);

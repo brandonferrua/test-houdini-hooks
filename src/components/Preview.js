@@ -1,15 +1,11 @@
-import {
-  defaultState,
-  template
-} from "elix/src/base/internal.js";
+import { defaultState, template } from "elix/src/base/internal.js";
 import { templateFrom } from "elix/src/core/htmlLiterals";
 import ReactiveElement from "elix/src/core/ReactiveElement.js";
 
 export default class WorkletPreview extends ReactiveElement {
-
   get [defaultState]() {
     return Object.assign(super[defaultState], {
-      component: null
+      component: null,
     });
   }
 
@@ -17,26 +13,26 @@ export default class WorkletPreview extends ReactiveElement {
     return templateFrom.html`
       <div id="toolbar">
         <label for="component-select">Select a component:</label>
-        <select name="components" id="component-select">
-          <option value="accordion">Accordion</option>
-          <option value="badge">Badge</option>
-          <option value="breadcrumb">Breadcrumb</option>
-          <option value="button" selected>Button</option>
-          <option value="card">Card</option>
-          <option value="combobox">Combobox</option>
-          <option value="dialog">Dialog</option>
-          <option value="icon">Icon</option>
-          <option value="input-checkbox">Input Checkbox</option>
-          <option value="input-date">Input Date</option>
-          <option value="input-file">Input File</option>
-          <option value="input-text">Input Text</option>
-          <option value="input-radio">Input Radio</option>
-          <option value="input-range">Input Range</option>
-          <option value="menu">Menu</option>
-          <option value="summary-detail">Summary Detail</option>
-          <option value="listbox">Listbox</option>
-          <option value="tabset">Tabset</option>
-        </select>
+        <sds-select name="components" id="component-select">
+          <div value="accordion">Accordion</div>
+          <div value="badge">Badge</div>
+          <div value="breadcrumb">Breadcrumb</div>
+          <div value="button">Button</div>
+          <div value="card">Card</div>
+          <div value="combobox">Combobox</div>
+          <div value="dialog">Dialog</div>
+          <div value="icon">Icon</div>
+          <div value="input-checkbox">Input Checkbox</div>
+          <div value="input-date">Input Date</div>
+          <div value="input-file">Input File</div>
+          <div value="input-text">Input Text</div>
+          <div value="input-radio">Input Radio</div>
+          <div value="input-range">Input Range</div>
+          <div value="menu">Menu</div>
+          <div value="summary-detail">Summary Detail</div>
+          <div value="listbox">Listbox</div>
+          <div value="tabset">Tabset</div>
+        </sds-select>
       </div>
       <div id="preview">
         <sds-button>Button</sds-button>
@@ -108,4 +104,4 @@ export default class WorkletPreview extends ReactiveElement {
   }
 }
 
-customElements.define('worklet-preview', WorkletPreview);
+customElements.define("worklet-preview", WorkletPreview);

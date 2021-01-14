@@ -5,6 +5,9 @@ import WorkletPreview from "./Preview";
 import WorkletHeader from "./Header";
 import WorkletRipple from "./Ripple";
 import SdsButton from "./Button";
+import SdsCombobox from "./Combobox";
+import SdsSelect from "./Select";
+import SdsOption from "./Option";
 
 export {
   WorkletColor,
@@ -14,4 +17,7 @@ export {
   WorkletHeader,
   WorkletRipple,
   SdsButton,
+  SdsCombobox,
+  SdsSelect,
+  SdsOption,
 };
