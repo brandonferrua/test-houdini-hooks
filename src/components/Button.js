@@ -1,6 +1,9 @@
 import { template } from "elix/src/base/internal.js";
 import { templateFrom } from "elix/src/core/htmlLiterals";
 import ReactiveElement from "elix/src/core/ReactiveElement.js";
+import css from "./Button.css";
+
+console.log(css);
 
 export default class SdsButton extends ReactiveElement {
   get [template]() {
@@ -11,7 +14,7 @@ export default class SdsButton extends ReactiveElement {
         <slot name="end"></slot>
       </button>
       <style>
-        @import url('/src/components/Button.css');
+        ${css}
       </style>
     `;
   }

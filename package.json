@@ -5,7 +5,7 @@
   "source": "src/index.js",
   "main": "dist/index.js",
   "scripts": {
-    "build": "microbundle --entry src/index.js --output dist/index.js --no-pkg-main --format modern --no-sourcemap",
+    "build": "microbundle --entry src/index.js --output dist/index.js --no-pkg-main --format modern --no-sourcemap --css inline",
     "start": "npx http-server .",
     "dev": "microbundle watch --format modern"
   },
